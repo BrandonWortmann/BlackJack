@@ -14,6 +14,7 @@ public class BlackJackFrame extends JFrame
 	{
 		super();
 		this.appController = appController;
+		this.appPanel = new BlackJackPanel(appController);
 		setupFrame();
 	}
 	
