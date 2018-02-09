@@ -8,6 +8,11 @@ import blackjack.controller.BlackJackController;
 
 public class BlackJackPanel extends JPanel
 {
+	private JButton hitButton;
+	private JButton stayButton;
+	private DealerPanel dealerPanel;
+	private PlayerPanel playerPanel;
+	
 	private BlackJackController appController;
 	
 	public BlackJackPanel(BlackJackController appController)
