@@ -1,5 +1,6 @@
 package blackjack.view;
 
+import java.awt.Color;
 import javax.swing.*;
 
 
@@ -45,14 +46,22 @@ public class PlayerPanel extends JPanel
 		tenthLabel = new JLabel();
 		eleventhLabel = new JLabel();
 		
+		setupPanel();
 		addCards(); 
 		
+	}
+	
+	private void setupPanel()
+	{
+		this.setBackground(Color.GREEN.darker().darker());
 	}
 	
 	private void addCards()
 	{
 		firstLabel.setIcon(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/3C.png")));
+		secondLabel.setIcon(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/3H.png")));
 		this.add(firstLabel);
+		this.add(secondLabel);
 		
 	}
 

@@ -28,6 +28,7 @@ public class BlackJackPanel extends JPanel
 	private void setupPanel()
 	{
 		this.add(playerPanel);
+		this.setBackground(Color.GREEN.darker().darker());
 	}
 
 }
