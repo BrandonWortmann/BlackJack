@@ -19,7 +19,15 @@ public class BlackJackPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
+		this.playerPanel = new PlayerPanel(appController);
 		
+		
+		setupPanel();
+	}
+	
+	private void setupPanel()
+	{
+		this.add(playerPanel);
 	}
 
 }

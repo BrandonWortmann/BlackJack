@@ -25,6 +25,7 @@ public class BlackJackFrame extends JFrame
 		this.setResizable(false);
 		this.add(appPanel);
 		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
 	

@@ -5,6 +5,7 @@ public class Card
 {
 	private int number;
 	private int suit;
+	private String image;
 	
 	public Card(int suit, int number)
 	{
@@ -22,5 +23,12 @@ public class Card
 	{
 		return this.suit;
 	}
+	
+	public void setImage(String image)
+	{
+		this.image = image;
+		
+	}
+
 
 }
