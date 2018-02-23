@@ -58,7 +58,7 @@ public class PlayerPanel extends JLayeredPane
 	
 	private void setupPanel()
 	{
-		this.setBackground(Color.GREEN.darker().darker());
+		this.setBackground(new Color(0,0,0,0));
 	}
 	
 	public void addCards()

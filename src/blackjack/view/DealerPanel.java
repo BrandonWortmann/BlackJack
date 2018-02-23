@@ -5,7 +5,7 @@ import java.awt.Color;
 import javax.swing.*;
 import blackjack.controller.BlackJackController;
 
-public class DealerPanel extends JPanel
+public class DealerPanel extends JLayeredPane
 {
 	private BlackJackController appController;
 	
@@ -42,11 +42,12 @@ public class DealerPanel extends JPanel
 		eleventhLabel = new JLabel();
 		
 		setupPanel();
+		addCards();
 	}
 	
 	private void setupPanel()
 	{
-		this.setBackground(Color.GREEN.darker().darker());
+		this.setBackground(new Color(0,0,0,0));
 	}
 	
 	public void addCards()
