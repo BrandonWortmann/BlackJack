@@ -13,6 +13,8 @@ public class BlackJackPanel extends JPanel
 	private DealerPanel dealerPanel;
 	private PlayerPanel playerPanel;
 	
+	private SpringLayout appLayout;
+	
 	private BlackJackController appController;
 	
 	public BlackJackPanel(BlackJackController appController)
@@ -21,14 +23,29 @@ public class BlackJackPanel extends JPanel
 		this.appController = appController;
 		this.playerPanel = new PlayerPanel(appController);
 		
+		this.appLayout = new SpringLayout();
 		
 		setupPanel();
+		setupLayout();
 	}
 	
 	private void setupPanel()
 	{
+		
+		this.setSize(900 , 900);
+		playerPanel.setSize(900,300);
+		this.setLayout(appLayout);
 		this.add(playerPanel);
 		this.setBackground(Color.GREEN.darker().darker());
+	}
+	
+	private void setupLayout()
+	{
+		appLayout.putConstraint(SpringLayout.NORTH, playerPanel, 0, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, playerPanel, 0, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, playerPanel, -600, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, playerPanel, 0, SpringLayout.EAST, this);
+		
 	}
 
 }

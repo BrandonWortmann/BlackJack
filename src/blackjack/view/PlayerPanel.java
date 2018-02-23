@@ -24,7 +24,7 @@ public class PlayerPanel extends JLayeredPane
 	private JLabel eleventhLabel;
 	private JLabel twelthLabel;
 	
-	private SpringLayout appLayout;
+	
 	
 	
 	
@@ -48,7 +48,8 @@ public class PlayerPanel extends JLayeredPane
 		tenthLabel = new JLabel();
 		eleventhLabel = new JLabel();
 		
-		appLayout = new SpringLayout();
+		
+		
 		
 		setupPanel();
 		addCards(); 
@@ -60,8 +61,17 @@ public class PlayerPanel extends JLayeredPane
 		this.setBackground(Color.GREEN.darker().darker());
 	}
 	
-	private void addCards()
+	public void addCards()
 	{
+		
+		
+		firstLabel.setSize(150, 230);
+		firstLabel.setLocation(360, 28);
+		
+		secondLabel.setSize(150,230);
+		secondLabel.setLocation(390,28);
+		
+		
 		firstLabel.setIcon(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/3C.png")));
 		secondLabel.setIcon(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/3H.png")));
 		this.add(firstLabel , new Integer(1));
