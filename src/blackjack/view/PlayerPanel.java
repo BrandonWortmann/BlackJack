@@ -7,7 +7,7 @@ import javax.swing.*;
 
 import blackjack.controller.BlackJackController;
 
-public class PlayerPanel extends JPanel
+public class PlayerPanel extends JLayeredPane
 {
 	private BlackJackController appController;
 	
@@ -23,6 +23,8 @@ public class PlayerPanel extends JPanel
 	private JLabel tenthLabel;
 	private JLabel eleventhLabel;
 	private JLabel twelthLabel;
+	
+	private SpringLayout appLayout;
 	
 	
 	
@@ -46,6 +48,8 @@ public class PlayerPanel extends JPanel
 		tenthLabel = new JLabel();
 		eleventhLabel = new JLabel();
 		
+		appLayout = new SpringLayout();
+		
 		setupPanel();
 		addCards(); 
 		
@@ -60,8 +64,8 @@ public class PlayerPanel extends JPanel
 	{
 		firstLabel.setIcon(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/3C.png")));
 		secondLabel.setIcon(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/3H.png")));
-		this.add(firstLabel);
-		this.add(secondLabel);
+		this.add(firstLabel , new Integer(1));
+		this.add(secondLabel , new Integer(2));
 		
 	}
 

@@ -26,7 +26,7 @@ public class Card
 	
 	public void setImage(String image)
 	{
-		this.image = image;
+		this.image = image +  ".png";
 		
 	}
 
