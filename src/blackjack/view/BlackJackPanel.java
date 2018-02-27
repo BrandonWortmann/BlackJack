@@ -27,12 +27,7 @@ public class BlackJackPanel extends JPanel
 		
 		
 		this.appLayout = new SpringLayout();
-		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 300, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, buttonPanel, 300, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, buttonPanel, -300, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, buttonPanel, -300, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, dealerPanel, 0, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, dealerPanel, -600, SpringLayout.SOUTH, this);
+		
 		
 		
 		setupPanel();
@@ -43,9 +38,6 @@ public class BlackJackPanel extends JPanel
 	{
 		
 		this.setSize(900 , 900);
-		playerPanel.setSize(900,300);
-		dealerPanel.setSize(900,300);
-		buttonPanel.setSize(300,300);
 		this.setLayout(appLayout);
 		this.add(playerPanel);
 		this.add(dealerPanel);
@@ -61,6 +53,13 @@ public class BlackJackPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, dealerPanel, 0, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, playerPanel, 600, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, playerPanel, 0, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 300, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, buttonPanel, -300, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, dealerPanel, 0, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, dealerPanel, -600, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, buttonPanel, 350, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, buttonPanel, -350, SpringLayout.EAST, this);
+		
 		
 	}
 
