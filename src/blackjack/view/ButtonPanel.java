@@ -25,6 +25,8 @@ public class ButtonPanel extends JPanel
 		this.doubleButton = new JButton("Double");
 		this.splitButton = new JButton("Split");
 		
+		setupPanel();
+		
 		
 	}
 	
