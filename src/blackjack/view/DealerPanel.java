@@ -42,7 +42,6 @@ public class DealerPanel extends JLayeredPane
 		eleventhLabel = new JLabel();
 		
 		setupPanel();
-		addCards();
 	}
 	
 	private void setupPanel()
@@ -52,17 +51,7 @@ public class DealerPanel extends JLayeredPane
 	
 	public void addCards()
 	{
-		firstLabel.setSize(150, 230);
-		firstLabel.setLocation(360, 28);
 		
-		secondLabel.setSize(150,230);
-		secondLabel.setLocation(390,28);
-		
-		
-		firstLabel.setIcon(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/3C.png")));
-		secondLabel.setIcon(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/3H.png")));
-		this.add(firstLabel , new Integer(1));
-		this.add(secondLabel , new Integer(2));
 	}
 
 }

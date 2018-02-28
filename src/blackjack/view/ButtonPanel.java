@@ -52,6 +52,9 @@ public class ButtonPanel extends JPanel
 		this.add(hitButton);
 		this.add(stayButton);
 		
+		
+		
+		
 	}
 
 	private void setupButtons()
@@ -60,8 +63,8 @@ public class ButtonPanel extends JPanel
 		stayButton.setOpaque(true);
 		stayButton.setBackground(Color.RED.darker().darker());
 		hitButton.setBackground(Color.BLUE.darker().darker());
-		hitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
-		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		hitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 60));
+		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 60));
 		hitButton.setBorder(new LineBorder(Color.BLACK,3));
 		stayButton.setBorder(new LineBorder(Color.BLACK,3));
 		hitButton.setForeground(Color.WHITE);
@@ -71,13 +74,12 @@ public class ButtonPanel extends JPanel
 		splitButton.setOpaque(true);
 		splitButton.setBackground(Color.MAGENTA.darker().darker());
 		doubleButton.setBackground(new Color(255, 140, 0).darker());
-		doubleButton.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
-		splitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		doubleButton.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
+		splitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		doubleButton.setBorder(new LineBorder(Color.BLACK,3));
 		splitButton.setBorder(new LineBorder(Color.BLACK,3));
 		doubleButton.setForeground(Color.WHITE);
 		splitButton.setForeground(Color.WHITE);
-
 	}
 
 	private void setupListeners()
@@ -104,14 +106,6 @@ public class ButtonPanel extends JPanel
 			
 		}
 		);
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		hitButton.addMouseListener(new MouseAdapter()
@@ -215,16 +209,34 @@ public class ButtonPanel extends JPanel
 	public void addDouble()
 	{
 		this.add(doubleButton);
+		
+		hitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
+		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
 	}
 
 	public void addSplit()
 	{
 		this.add(splitButton);
+		
+		hitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+		doubleButton.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 	}
 
 	public void removeSplit()
 	{
 		this.remove(splitButton);
+		
+		hitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
+		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
+	}
+	
+	public void removeDouble()
+	{
+		this.remove(doubleButton);
+		
+		hitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 60));
+		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 60));
 	}
 
 }
