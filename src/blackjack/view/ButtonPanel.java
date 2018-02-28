@@ -52,8 +52,6 @@ public class ButtonPanel extends JPanel
 		this.add(hitButton);
 		this.add(stayButton);
 		
-		addDouble();
-		addSplit();
 	}
 
 	private void setupButtons()
@@ -89,16 +87,125 @@ public class ButtonPanel extends JPanel
 				
 		});
 		
+		stayButton.addActionListener(click -> 
+		{
+			
+		}
+		);
+		
+		splitButton.addActionListener(click -> 
+		{
+			
+		}
+		);
+		
+		doubleButton.addActionListener(click -> 
+		{
+			
+		}
+		);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		hitButton.addMouseListener(new MouseAdapter()
 		{
 			public void mouseEntered(MouseEvent enter)
 			{
-				hitButton.setBorder(new LineBorder(Color.WHITE));
+				hitButton.setBorder(new LineBorder(Color.WHITE,3));
 			}
 			
-			public void mouseExit(MouseEvent exit)
+			public void mouseExited(MouseEvent exit)
 			{
-				//hitButton.setBorder
+				hitButton.setBorder(new LineBorder(Color.BLACK,3));
+			}
+			
+			public void mousePressed(MouseEvent pressed)
+			{
+				hitButton.setBackground(Color.BLUE.darker());
+			}
+			
+			public void mouseReleased(MouseEvent released)
+			{
+				hitButton.setBackground(Color.BLUE.darker().darker());
+			}
+			
+		});
+		
+		stayButton.addMouseListener(new MouseAdapter()
+		{
+			public void mouseEntered(MouseEvent enter)
+			{
+				stayButton.setBorder(new LineBorder(Color.WHITE,3));
+			}
+			
+			public void mouseExited(MouseEvent exit)
+			{
+				stayButton.setBorder(new LineBorder(Color.BLACK,3));
+			}
+			
+			public void mousePressed(MouseEvent pressed)
+			{
+				stayButton.setBackground(Color.RED.darker());
+			}
+			
+			public void mouseReleased(MouseEvent released)
+			{
+				stayButton.setBackground(Color.RED.darker().darker());
+			}
+			
+		});
+		
+		doubleButton.addMouseListener(new MouseAdapter()
+		{
+			public void mouseEntered(MouseEvent enter)
+			{
+				doubleButton.setBorder(new LineBorder(Color.WHITE,3));
+			}
+			
+			public void mouseExited(MouseEvent exit)
+			{
+				doubleButton.setBorder(new LineBorder(Color.BLACK,3));
+			}
+			
+			public void mousePressed(MouseEvent pressed)
+			{
+				doubleButton.setBackground(new Color(255, 140, 0));
+			}
+			
+			public void mouseReleased(MouseEvent released)
+			{
+				doubleButton.setBackground(new Color(255, 140, 0).darker());
+			}
+			
+		});
+		
+		splitButton.addMouseListener(new MouseAdapter()
+		{
+			public void mouseEntered(MouseEvent enter)
+			{
+				splitButton.setBorder(new LineBorder(Color.WHITE,3));
+			}
+			
+			public void mouseExited(MouseEvent exit)
+			{
+				splitButton.setBorder(new LineBorder(Color.BLACK,3));
+			}
+			
+			public void mousePressed(MouseEvent pressed)
+			{
+				splitButton.setBackground(Color.MAGENTA.darker());
+			}
+			
+			public void mouseReleased(MouseEvent released)
+			{
+				splitButton.setBackground(Color.MAGENTA.darker().darker());
 			}
 			
 		});
