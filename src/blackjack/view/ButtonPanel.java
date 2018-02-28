@@ -85,7 +85,6 @@ public class ButtonPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		appLayout.putConstraint(SpringLayout.SOUTH, hitButton, -225, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, stayButton, -5, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, splitButton, -80, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, doubleButton, -155, SpringLayout.SOUTH, this);
@@ -101,6 +100,7 @@ public class ButtonPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, doubleButton, 0, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.WEST, hitButton, 0, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, hitButton, 0, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, hitButton, -230, SpringLayout.SOUTH, this);
 		
 	}
 	
