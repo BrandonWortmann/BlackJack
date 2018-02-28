@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import blackjack.controller.BlackJackController;
+import blackjack.model.Card;
 
 public class BlackJackFrame extends JFrame
 {
@@ -27,6 +28,16 @@ public class BlackJackFrame extends JFrame
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
+	}
+	
+	public void addPlayerCard(Card card, int num)
+	{
+		appPanel.addPlayerCard(card , num);
+	}
+	
+	public void addDealerCard(Card card, int num) 
+	{
+		appPanel.addDealerCard(card , num);
 	}
 	
 

@@ -6,6 +6,7 @@ import javax.swing.*;
 
 
 import blackjack.controller.BlackJackController;
+import blackjack.model.Card;
 
 public class PlayerPanel extends JLayeredPane
 {
@@ -23,7 +24,7 @@ public class PlayerPanel extends JLayeredPane
 	private JLabel tenthLabel;
 	private JLabel eleventhLabel;
 	private JLabel twelthLabel;
-	
+ 
 	
 	
 	
@@ -60,11 +61,9 @@ public class PlayerPanel extends JLayeredPane
 		this.setBackground(new Color(0,0,0,0));
 	}
 	
-	public void addCards()
+	public void addCard(Card card , int num)
 	{
-		
-		
-		
+			
 		
 	}
 

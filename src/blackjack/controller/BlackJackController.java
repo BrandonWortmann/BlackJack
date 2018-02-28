@@ -9,17 +9,21 @@ public class BlackJackController
 {
 	private BlackJackFrame appFrame;
 	private List<Card> cards;
+	private List<Card> playerCards;
+	private List<Card> dealerCards;
 	
 	public BlackJackController()
 	{
 		appFrame = new BlackJackFrame(this);
 		cards = new ArrayList<Card>();
+		playerCards = new ArrayList<Card>();
+		dealerCards = new ArrayList<Card>();
 		
-		setupCards();
+		dealInitial();
 		
 	}
 	
-	private void setupCards()
+	private void dealInitial()
 	{
 		for(int suit = 1; suit <= 4; suit++)
 		{
@@ -86,9 +90,13 @@ public class BlackJackController
 		cards.get(51).setImage("KD");
 		
 		
+		playerCards.add(cards.remove((int)(Math.random()*cards.size())));
+		appFrame.addPlayerCard(playerCards.get(0),1);
 		
-		
+		dealerCards.add(cards.remove((int)(Math.random()*cards.size())));
+		appFrame.addDealerCard(playerCards.get(0),1);
 		
 	}
 
+	
 }

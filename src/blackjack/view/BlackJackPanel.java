@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.Color;
 
 import blackjack.controller.BlackJackController;
+import blackjack.model.Card;
 
 
 public class BlackJackPanel extends JPanel
@@ -61,6 +62,16 @@ public class BlackJackPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, buttonPanel, -350, SpringLayout.EAST, this);
 		
 		
+	}
+	
+	public void addPlayerCard(Card card, int num)
+	{
+		playerPanel.addCard(card , num);
+	}
+	
+	public void addDealerCard(Card card, int num)
+	{
+		dealerPanel.addCard(card , num);
 	}
 
 }
