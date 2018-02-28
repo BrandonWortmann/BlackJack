@@ -5,6 +5,7 @@ import javax.swing.border.Border;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.*;
 
 import blackjack.controller.BlackJackController;
 import java.awt.Font;
@@ -12,98 +13,111 @@ import java.awt.GridLayout;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 
 public class ButtonPanel extends JPanel
 {
-	
+
 	private BlackJackController appController;
 	private JButton hitButton;
 	private JButton stayButton;
 	private JButton doubleButton;
 	private JButton splitButton;
-	private SpringLayout appLayout;
-	
-	
+	private GridLayout appLayout;
+
 	public ButtonPanel(BlackJackController appController)
 	{
 		super();
-		
+
 		this.appController = appController;
-		
+
 		this.hitButton = new JButton("Hit");
 		this.doubleButton = new JButton("Double");
 		this.splitButton = new JButton("Split");
 		this.stayButton = new JButton("Stay");
-		
-		this.appLayout = new SpringLayout();
-		
-		
-		
+
+		this.appLayout = new GridLayout(0, 1, 0, 10);
+
 		setupPanel();
-		setupLayout();
 		setupButtons();
-		
-		
+		setupListeners();
+
 	}
-	
+
 	private void setupPanel()
 	{
-		
+
 		this.setLayout(appLayout);
 		this.setOpaque(false);
 		this.add(hitButton);
-		this.add(doubleButton);
-		this.add(splitButton);
 		this.add(stayButton);
+		
+		addDouble();
+		addSplit();
 	}
-	
+
 	private void setupButtons()
 	{
 		hitButton.setOpaque(true);
 		stayButton.setOpaque(true);
-		stayButton.setBackground(Color.DARK_GRAY);
-		hitButton.setBackground(Color.DARK_GRAY);
+		stayButton.setBackground(Color.RED.darker().darker());
+		hitButton.setBackground(Color.BLUE.darker().darker());
 		hitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
-		hitButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.BLUE, Color.BLUE));
-		stayButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 0, 0), Color.RED));
+		hitButton.setBorder(new LineBorder(Color.BLACK,3));
+		stayButton.setBorder(new LineBorder(Color.BLACK,3));
 		hitButton.setForeground(Color.WHITE);
 		stayButton.setForeground(Color.WHITE);
-		
+
 		doubleButton.setOpaque(true);
 		splitButton.setOpaque(true);
-		splitButton.setBackground(Color.DARK_GRAY);
-		doubleButton.setBackground(Color.DARK_GRAY);
+		splitButton.setBackground(Color.MAGENTA.darker().darker());
+		doubleButton.setBackground(new Color(255, 140, 0).darker());
 		doubleButton.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		splitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
-		doubleButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.ORANGE, Color.ORANGE));
-		splitButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.MAGENTA, Color.MAGENTA));
+		doubleButton.setBorder(new LineBorder(Color.BLACK,3));
+		splitButton.setBorder(new LineBorder(Color.BLACK,3));
 		doubleButton.setForeground(Color.WHITE);
 		splitButton.setForeground(Color.WHITE);
-		
+
 	}
-	
-	private void setupLayout()
+
+	private void setupListeners()
 	{
-		appLayout.putConstraint(SpringLayout.SOUTH, stayButton, -5, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, splitButton, -80, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, doubleButton, -155, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, hitButton, 5, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, stayButton, 10, SpringLayout.SOUTH, splitButton);
-		appLayout.putConstraint(SpringLayout.WEST, stayButton, 0, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, stayButton, 0, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, splitButton, 10, SpringLayout.SOUTH, doubleButton);
-		appLayout.putConstraint(SpringLayout.WEST, splitButton, 0, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, splitButton, 0, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, doubleButton, 10, SpringLayout.SOUTH, hitButton);
-		appLayout.putConstraint(SpringLayout.WEST, doubleButton, 0, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, doubleButton, 0, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.WEST, hitButton, 0, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, hitButton, 0, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, hitButton, -230, SpringLayout.SOUTH, this);
+		hitButton.addActionListener(click -> 
+		{
+				
+		});
+		
+		hitButton.addMouseListener(new MouseAdapter()
+		{
+			public void mouseEntered(MouseEvent enter)
+			{
+				hitButton.setBorder(new LineBorder(Color.WHITE));
+			}
+			
+			public void mouseExit(MouseEvent exit)
+			{
+				//hitButton.setBorder
+			}
+			
+		});
 		
 	}
-	
-	
+
+	public void addDouble()
+	{
+		this.add(doubleButton);
+	}
+
+	public void addSplit()
+	{
+		this.add(splitButton);
+	}
+
+	public void removeSplit()
+	{
+		this.remove(splitButton);
+	}
 
 }
