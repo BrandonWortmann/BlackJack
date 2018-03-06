@@ -2,6 +2,8 @@ package blackjack.view;
 
 import java.awt.Color;
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -11,45 +13,17 @@ import blackjack.model.Card;
 public class PlayerPanel extends JLayeredPane
 {
 	private BlackJackController appController;
+	private List<JLabel> labels;
 	
-	private JLabel firstLabel;
-	private JLabel secondLabel;
-	private JLabel thirdLabel;
-	private JLabel fourthLabel;
-	private JLabel fifthLabel;
-	private JLabel sixthLabel;
-	private JLabel seventhLabel;
-	private JLabel eigthLabel;
-	private JLabel ninethLabel;
-	private JLabel tenthLabel;
-	private JLabel eleventhLabel;
-	private JLabel twelthLabel;
+	
  
-	
-	
-	
-	
-	
 	
 	public PlayerPanel(BlackJackController appConroller)
 	{
 		super();
 		
 		this.appController = appController;
-		
-		firstLabel = new JLabel();
-		secondLabel = new JLabel();
-		thirdLabel = new JLabel();
-		fourthLabel = new JLabel();
-		fifthLabel = new JLabel();
-		sixthLabel = new JLabel();
-		seventhLabel = new JLabel();
-		eigthLabel = new JLabel();
-		ninethLabel = new JLabel();
-		tenthLabel = new JLabel();
-		eleventhLabel = new JLabel();
-		
-		
+		labels = new ArrayList<JLabel>();
 		
 		
 		setupPanel(); 
@@ -63,6 +37,7 @@ public class PlayerPanel extends JLayeredPane
 	
 	public void addCard(Card card , int num)
 	{
+		labels.add(new JLabel(card.getImage()));
 			
 		
 	}

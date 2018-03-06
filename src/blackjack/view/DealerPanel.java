@@ -5,23 +5,14 @@ import java.awt.Color;
 import javax.swing.*;
 import blackjack.controller.BlackJackController;
 import blackjack.model.Card;
+import java.util.List;
+import java.util.ArrayList;
 
 public class DealerPanel extends JLayeredPane
 {
 	private BlackJackController appController;
-	
-	private JLabel firstLabel;
-	private JLabel secondLabel;
-	private JLabel thirdLabel;
-	private JLabel fourthLabel;
-	private JLabel fifthLabel;
-	private JLabel sixthLabel;
-	private JLabel seventhLabel;
-	private JLabel eigthLabel;
-	private JLabel ninethLabel;
-	private JLabel tenthLabel;
-	private JLabel eleventhLabel;
-	private JLabel twelthLabel;
+	private List<JLabel> labels;
+	private JLabel label;
 	
 	
 	
@@ -30,18 +21,10 @@ public class DealerPanel extends JLayeredPane
 	{
 		super();
 		this.appController = appController;
+		labels = new ArrayList<JLabel>();
+		label = new JLabel();
 		
-		firstLabel = new JLabel();
-		secondLabel = new JLabel();
-		thirdLabel = new JLabel();
-		fourthLabel = new JLabel();
-		fifthLabel = new JLabel();
-		sixthLabel = new JLabel();
-		seventhLabel = new JLabel();
-		eigthLabel = new JLabel();
-		ninethLabel = new JLabel();
-		tenthLabel = new JLabel();
-		eleventhLabel = new JLabel();
+		
 		
 		setupPanel();
 	}
@@ -53,6 +36,16 @@ public class DealerPanel extends JLayeredPane
 	
 	public void addCard(Card card , int num)
 	{
+		label.setIcon(new ImageIcon(getClass().getResource(card.getImage())));
+		label.setLocation(360,28);
+		
+//		labels.add(new JLabel(card.getImage()));
+//		
+//		for(int i = 0; i < labels.size()-1; i++)
+//		{
+//			this.add(labels.get(i));
+//			labels.get(i).setLocation(150,0);
+//		}
 		
 	}
 

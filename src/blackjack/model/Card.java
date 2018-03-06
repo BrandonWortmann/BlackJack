@@ -29,6 +29,11 @@ public class Card
 		this.image = image +  ".png";
 		
 	}
+	
+	public String getImage()
+	{
+		return image;
+	}
 
 
 }

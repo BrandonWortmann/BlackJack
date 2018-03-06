@@ -11,6 +11,8 @@ public class BlackJackController
 	private List<Card> cards;
 	private List<Card> playerCards;
 	private List<Card> dealerCards;
+	private int playerIndex;
+	private int dealerIndex;
 	
 	public BlackJackController()
 	{
@@ -18,6 +20,9 @@ public class BlackJackController
 		cards = new ArrayList<Card>();
 		playerCards = new ArrayList<Card>();
 		dealerCards = new ArrayList<Card>();
+		
+		playerIndex = 0;
+		dealerIndex = 0;
 		
 		dealInitial();
 		
