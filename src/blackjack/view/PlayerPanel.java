@@ -37,7 +37,7 @@ public class PlayerPanel extends JLayeredPane
 	
 	public void addCard(Card card , int num)
 	{
-		labels.add(new JLabel(card.getImage()));
+		//labels.add(new JLabel(card.getImage()));
 			
 		
 	}
