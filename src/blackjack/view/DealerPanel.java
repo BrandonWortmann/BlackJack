@@ -38,7 +38,7 @@ public class DealerPanel extends JLayeredPane
 	
 	private void setupPanel()
 	{
-		this.setBackground(new Color(0,0,0,0));
+		this.setOpaque(false);
 	}
 	
 	public void addCard(Card card , int num)
@@ -46,7 +46,7 @@ public class DealerPanel extends JLayeredPane
 		// 371 is mid	
 		
 		labels.add(new JLabel(new ImageIcon(getClass().getResource(card.getImage()))));
-		halfSize = labels.size()/2;
+		halfSize = (labels.size()/2) + 0.5;
 		
 		for(int i = 0; i<labels.size();i++)
 		{
