@@ -30,14 +30,14 @@ public class BlackJackFrame extends JFrame
 		
 	}
 	
-	public void addPlayerCard(Card card, int num)
+	public void addPlayerCard(Card card)
 	{
-		appPanel.addPlayerCard(card , num);
+		appPanel.addPlayerCard(card);
 	}
 	
-	public void addDealerCard(Card card, int num) 
+	public void addDealerCard(Card card) 
 	{
-		appPanel.addDealerCard(card , num);
+		appPanel.addDealerCard(card);
 	}
 	
 

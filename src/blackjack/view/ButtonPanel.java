@@ -86,7 +86,7 @@ public class ButtonPanel extends JPanel
 	{
 		hitButton.addActionListener(click -> 
 		{
-				
+			appController.playerHit();	
 		});
 		
 		stayButton.addActionListener(click -> 

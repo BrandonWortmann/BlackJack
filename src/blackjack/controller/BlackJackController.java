@@ -24,11 +24,11 @@ public class BlackJackController
 		playerIndex = 0;
 		dealerIndex = 0;
 		
-		dealInitial();
+		
 		
 	}
 	
-	private void dealInitial()
+	public void start()
 	{
 		for(int suit = 1; suit <= 4; suit++)
 		{
@@ -96,11 +96,17 @@ public class BlackJackController
 		
 		
 		playerCards.add(cards.remove((int)(Math.random()*cards.size())));
-		appFrame.addPlayerCard(playerCards.get(0),1);
+		appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
 		
 		dealerCards.add(cards.remove((int)(Math.random()*cards.size())));
-		appFrame.addDealerCard(playerCards.get(0),1);
+		appFrame.addDealerCard(dealerCards.get(playerCards.size()-1));
 		
+	}
+	
+	public void playerHit()
+	{
+		playerCards.add(cards.remove((int)(Math.random()*cards.size())));
+		appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
 	}
 
 	

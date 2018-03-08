@@ -64,14 +64,14 @@ public class BlackJackPanel extends JPanel
 		
 	}
 	
-	public void addPlayerCard(Card card, int num)
+	public void addPlayerCard(Card card)
 	{
-		playerPanel.addCard(card , num);
+		playerPanel.addCard(card);
 	}
 	
-	public void addDealerCard(Card card, int num)
+	public void addDealerCard(Card card)
 	{
-		dealerPanel.addCard(card , num);
+		dealerPanel.addCard(card);
 	}
 
 }

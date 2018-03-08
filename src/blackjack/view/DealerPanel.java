@@ -41,7 +41,7 @@ public class DealerPanel extends JLayeredPane
 		this.setOpaque(false);
 	}
 	
-	public void addCard(Card card , int num)
+	public void addCard(Card card)
 	{
 		// 371 is mid	
 		
@@ -54,11 +54,11 @@ public class DealerPanel extends JLayeredPane
 			
 			if(i < halfSize)
 			{
-				labels.get(i).setLocation(371 - ((labels.size()-1) * 15),35);
+				labels.get(i).setLocation(371 - ((labels.size()-i) * 15),35);
 			}
 			else if(i > halfSize)
 			{
-				labels.get(i).setLocation(371 + ((labels.size()-1) * 15),35);
+				labels.get(i).setLocation(371 + ((labels.size()-i) * 15),35);
 			}
 			else
 			{
