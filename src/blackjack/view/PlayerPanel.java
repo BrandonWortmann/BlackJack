@@ -40,7 +40,7 @@ public class PlayerPanel extends JLayeredPane
 	
 	public void addCard(Card card)
 	{
-		for(int i=0; i<labels.size()-1;i++)
+		for(int i=0; i<labels.size();i++)
 		{
 			this.remove(labels.get(i));
 		}
@@ -48,24 +48,24 @@ public class PlayerPanel extends JLayeredPane
 		labels.add(new JLabel(new ImageIcon(getClass().getResource(card.getImage()))));
 		halfSize = (labels.size()/2) + 0.5;
 		
-		for(int i = 0; i<labels.size()-1;i++)
+		for(int i = 0; i<labels.size();i++)
 		{
 			labels.get(i).setSize(158, 230);
 			
 			if(i < halfSize)
 			{
-				labels.get(i).setLocation(371 - ((labels.size()-i) * 15),35);
+				labels.get(i).setLocation(371 - ((labels.size()) * (15*i)),35);
 			}
 			else if(i > halfSize)
 			{
-				labels.get(i).setLocation(371 + ((labels.size()-i) * 15),35);
+				labels.get(i).setLocation(371 + ((labels.size()) * (15*i)),35);
 			}
 			else
 			{
 				labels.get(i).setLocation(371,35);
 			}
 			
-			this.add(labels.get(i));
+			this.add(labels.get(i) ,i);
 		}
 			
 		
