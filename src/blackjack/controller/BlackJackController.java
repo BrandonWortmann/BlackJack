@@ -122,6 +122,10 @@ public class BlackJackController
 			
 			appFrame.changePlayerScore(playerCards.get(playerCards.size()-1).getNumber());
 		}
+		else
+		{
+			//appFrame.removeAll();
+		}
 		
 	}
 	
@@ -138,7 +142,42 @@ public class BlackJackController
 	
 	public void playerStayed()
 	{
+		//appFrame.removeAll();
+		runDealer();
+	}
+	
+	
+	public void runDealer()
+	{
+		while(checkDealer() == false)
+		{
+			dealerCards.add(cards.remove((int)(Math.random()*cards.size())));
+			appFrame.addDealerCard(dealerCards.get(dealerCards.size()-1));
+			
+			appFrame.changeDealerScore(dealerCards.get(dealerCards.size()-1).getNumber());
+			
+			pause(1000);
+			
+		}
+	}
+	
+	
+	
+	private boolean checkDealer()
+	{
+		int dealerTotal = 0;
 		
+		for(int i = 0; i < dealerCards.size(); i++)
+		{
+			dealerTotal += dealerCards.get(i).getNumber();
+		}
+		
+		if(dealerTotal > 16)
+		{
+			return true;
+		}
+		
+		return false;
 	}
 	
 	private boolean checkPlayerBust()
@@ -155,6 +194,19 @@ public class BlackJackController
 			return true;
 		}
 		return false;
+	}
+	
+	private void pause(int time)
+	{
+		try
+		{
+			Thread.sleep(time);
+		}
+		catch (InterruptedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	

@@ -245,6 +245,7 @@ public class ButtonPanel extends JPanel
 		this.remove(stayButton);
 		this.remove(doubleButton);
 		this.remove(splitButton);
+		
 	}
 
 }

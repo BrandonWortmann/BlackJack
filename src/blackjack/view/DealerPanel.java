@@ -57,7 +57,7 @@ public class DealerPanel extends JLayeredPane
 			this.add(labels.get(i) , new Integer(i));
 		}
 		
-		//Bens Help :)
+		//Ben's Help :)
 		for(JLabel label : labels)
 		{
 			label.setLocation(label.getX()-(15 * (labels.size() - 1)) , 5);
