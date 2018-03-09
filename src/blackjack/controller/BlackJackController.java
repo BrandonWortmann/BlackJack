@@ -115,11 +115,16 @@ public class BlackJackController
 	
 	public void addPlayerCard()
 	{
-		playerCards.add(cards.remove((int)(Math.random()*cards.size())));
-		appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
+		if(checkPlayerBust() == false)
+		{
+			playerCards.add(cards.remove((int)(Math.random()*cards.size())));
+			appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
+			
+			appFrame.changePlayerScore(playerCards.get(playerCards.size()-1).getNumber());
+		}
 		
-		appFrame.changePlayerScore(playerCards.get(playerCards.size()-1).getNumber());
 	}
+	
 	
 	public void addDealerCard()
 	{
@@ -127,6 +132,29 @@ public class BlackJackController
 		appFrame.addDealerCard(dealerCards.get(playerCards.size()-1));
 		
 		appFrame.changeDealerScore(dealerCards.get(dealerCards.size()-1).getNumber());
+	}
+	
+	
+	
+	public void playerStayed()
+	{
+		
+	}
+	
+	private boolean checkPlayerBust()
+	{
+		int playerTotal = 0;
+		
+		for(int i = 0; i < playerCards.size(); i++)
+		{
+			playerTotal += playerCards.get(i).getNumber();
+		}
+		
+		if(playerTotal > 21)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	

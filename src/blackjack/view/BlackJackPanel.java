@@ -126,5 +126,10 @@ public class BlackJackPanel extends JPanel
 	{
 		dealerPanel.addCard(card);
 	}
+	
+	public void removeAll()
+	{
+		buttonPanel.removeAll();
+	}
 
 }

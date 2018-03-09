@@ -91,7 +91,7 @@ public class ButtonPanel extends JPanel
 		
 		stayButton.addActionListener(click -> 
 		{
-			
+			appController.playerStayed();
 		}
 		);
 		
@@ -237,6 +237,14 @@ public class ButtonPanel extends JPanel
 		
 		hitButton.setFont(new Font("Lucida Grande", Font.PLAIN, 60));
 		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 60));
+	}
+	
+	public void removeAll()
+	{
+		this.remove(hitButton);
+		this.remove(stayButton);
+		this.remove(doubleButton);
+		this.remove(splitButton);
 	}
 
 }

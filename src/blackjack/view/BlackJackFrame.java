@@ -50,6 +50,11 @@ public class BlackJackFrame extends JFrame
 		appPanel.changeDealerScore(input);
 	}
 	
+	public void removeAll()
+	{
+		appPanel.removeAll();
+	}
+	
 	
 	
 
