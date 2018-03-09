@@ -86,7 +86,7 @@ public class ButtonPanel extends JPanel
 	{
 		hitButton.addActionListener(click -> 
 		{
-			appController.playerHit();	
+			appController.addPlayerCard();	
 		});
 		
 		stayButton.addActionListener(click -> 

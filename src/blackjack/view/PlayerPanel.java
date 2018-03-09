@@ -2,6 +2,8 @@ package blackjack.view;
 
 import java.awt.Color;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,6 @@ public class PlayerPanel extends JLayeredPane
 {
 	private BlackJackController appController;
 	private List<JLabel> labels;
-	private double halfSize;
 	
 	
  
@@ -26,7 +27,6 @@ public class PlayerPanel extends JLayeredPane
 		this.appController = appController;
 		labels = new ArrayList<JLabel>();
 		
-		halfSize = 0.0;
 		
 		
 		setupPanel(); 
@@ -36,6 +36,7 @@ public class PlayerPanel extends JLayeredPane
 	private void setupPanel()
 	{
 		this.setOpaque(false);
+		
 	}
 	
 	public void addCard(Card card)
@@ -46,20 +47,20 @@ public class PlayerPanel extends JLayeredPane
 		}
 		
 		labels.add(new JLabel(new ImageIcon(getClass().getResource(card.getImage()))));
-		halfSize = (labels.size()/2) + 0.5;
 		
 		for(int i = 0; i<labels.size();i++)
 		{
 			labels.get(i).setSize(158, 230);
 			
-			labels.get(i).setLocation(371+(30*i) , 35);
+			labels.get(i).setLocation(371+(30*i) , 42);
 			
 			this.add(labels.get(i) ,new Integer(i));
 		}
 		
+		//Bens Help :)
 		for(JLabel label : labels)
 		{
-			label.setLocation(label.getX()-(15 * (labels.size() - 1)) , 35);
+			label.setLocation(label.getX()-(15 * (labels.size() - 1)) , 42);
 		}
 			
 		

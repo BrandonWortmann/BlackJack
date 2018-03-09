@@ -3,6 +3,8 @@ package blackjack.view;
 import java.awt.Color;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import blackjack.controller.BlackJackController;
 import blackjack.model.Card;
 import java.util.List;
@@ -12,10 +14,6 @@ public class DealerPanel extends JLayeredPane
 {
 	private BlackJackController appController;
 	private List<JLabel> labels;
-	private JLabel label;
-	private JLabel labela;
-	private JLabel labelb;
-	private double halfSize;
 	
 	
 	
@@ -24,11 +22,8 @@ public class DealerPanel extends JLayeredPane
 	{
 		super();
 		this.appController = appController;
-		halfSize = 0.0;
 		labels = new ArrayList<JLabel>();
-		label = new JLabel();
-		labela = new JLabel();
-		labelb= new JLabel();
+		
 		
 		
 		
@@ -39,33 +34,33 @@ public class DealerPanel extends JLayeredPane
 	private void setupPanel()
 	{
 		this.setOpaque(false);
+		
 	}
 	
 	public void addCard(Card card)
 	{
-		// 371 is mid	
+		
+		for(int i=0; i<labels.size();i++)
+		{
+			this.remove(labels.get(i));
+		}
+		
 		
 		labels.add(new JLabel(new ImageIcon(getClass().getResource(card.getImage()))));
-		halfSize = (labels.size()/2) + 0.5;
 		
 		for(int i = 0; i<labels.size();i++)
 		{
 			labels.get(i).setSize(158, 230);
 			
-			if(i < halfSize)
-			{
-				labels.get(i).setLocation(371 - ((labels.size()) * 15),35);
-			}
-			else if(i > halfSize)
-			{
-				labels.get(i).setLocation(371 + ((labels.size()) * 15),35);
-			}
-			else
-			{
-				labels.get(i).setLocation(371,35);
-			}
+			labels.get(i).setLocation(371+(30*i) , 5);
 			
-			this.add(labels.get(i));
+			this.add(labels.get(i) , new Integer(i));
+		}
+		
+		//Bens Help :)
+		for(JLabel label : labels)
+		{
+			label.setLocation(label.getX()-(15 * (labels.size() - 1)) , 5);
 		}
 		
 		

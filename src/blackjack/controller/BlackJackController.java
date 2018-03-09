@@ -95,18 +95,27 @@ public class BlackJackController
 		cards.get(51).setImage("13D");
 		
 		
-		playerCards.add(cards.remove((int)(Math.random()*cards.size())));
-		appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
+		addPlayerCard();
+		addDealerCard();
+		addPlayerCard();
+		addDealerCard();
 		
-		dealerCards.add(cards.remove((int)(Math.random()*cards.size())));
-		appFrame.addDealerCard(dealerCards.get(playerCards.size()-1));
+		
+		
 		
 	}
 	
-	public void playerHit()
+	public void addPlayerCard()
 	{
 		playerCards.add(cards.remove((int)(Math.random()*cards.size())));
 		appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
+		
+	}
+	
+	public void addDealerCard()
+	{
+		dealerCards.add(cards.remove((int)(Math.random()*cards.size())));
+		appFrame.addDealerCard(dealerCards.get(playerCards.size()-1));
 	}
 
 	
