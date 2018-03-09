@@ -40,12 +40,12 @@ public class BlackJackFrame extends JFrame
 		appPanel.addDealerCard(card);
 	}
 	
-	public void playerScore(int input)
+	public void changePlayerScore(int input)
 	{
 		appPanel.changePlayerScore(input);
 	}
 	
-	public void dealerScore(int input)
+	public void changeDealerScore(int input)
 	{
 		appPanel.changeDealerScore(input);
 	}

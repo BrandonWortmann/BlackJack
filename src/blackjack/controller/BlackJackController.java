@@ -34,7 +34,15 @@ public class BlackJackController
 		{
 			for(int number = 1; number <= 13; number++)
 			{
-				cards.add(new Card(suit , number));
+				if(number >= 10)
+				{
+					cards.add(new Card(suit , 10));
+				}
+				else
+				{
+					cards.add(new Card(suit , number));
+				}
+				
 				
 			}
 			
@@ -110,12 +118,15 @@ public class BlackJackController
 		playerCards.add(cards.remove((int)(Math.random()*cards.size())));
 		appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
 		
+		appFrame.changePlayerScore(playerCards.get(playerCards.size()-1).getNumber());
 	}
 	
 	public void addDealerCard()
 	{
 		dealerCards.add(cards.remove((int)(Math.random()*cards.size())));
 		appFrame.addDealerCard(dealerCards.get(playerCards.size()-1));
+		
+		appFrame.changeDealerScore(dealerCards.get(dealerCards.size()-1).getNumber());
 	}
 
 	
