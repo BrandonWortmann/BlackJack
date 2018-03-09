@@ -52,20 +52,14 @@ public class PlayerPanel extends JLayeredPane
 		{
 			labels.get(i).setSize(158, 230);
 			
-			if(i < halfSize)
-			{
-				labels.get(i).setLocation(371 - ((labels.size()) * (15*i)),35);
-			}
-			else if(i > halfSize)
-			{
-				labels.get(i).setLocation(371 + ((labels.size()) * (15*i)),35);
-			}
-			else
-			{
-				labels.get(i).setLocation(371,35);
-			}
+			labels.get(i).setLocation(371+(30*i) , 35);
 			
-			this.add(labels.get(i) ,i);
+			this.add(labels.get(i) ,new Integer(i));
+		}
+		
+		for(JLabel label : labels)
+		{
+			label.setLocation(label.getX()-(15 * (labels.size() - 1)) , 35);
 		}
 			
 		
