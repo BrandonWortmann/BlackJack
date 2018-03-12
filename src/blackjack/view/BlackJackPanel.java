@@ -136,5 +136,10 @@ public class BlackJackPanel extends JPanel
 	{
 		buttonPanel.runEndScreen(input);
 	}
+	
+	public void reset()
+	{
+		
+	}
 
 }

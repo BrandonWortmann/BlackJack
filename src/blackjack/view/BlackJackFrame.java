@@ -60,6 +60,11 @@ public class BlackJackFrame extends JFrame
 		appPanel.runEndScreen(input);
 	}
 	
+	public void reset()
+	{
+		appPanel.reset();
+	}
+	
 	
 	
 

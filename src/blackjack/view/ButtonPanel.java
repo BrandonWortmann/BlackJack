@@ -131,6 +131,11 @@ public class ButtonPanel extends JPanel
 		}
 		);
 		
+		playAgain.addActionListener(click -> 
+		{
+			appController.start();
+		});
+		
 		
 		hitButton.addMouseListener(new MouseAdapter()
 		{

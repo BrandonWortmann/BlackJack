@@ -30,7 +30,10 @@ public class BlackJackController
 	
 	public void start()
 	{
-		
+		cards.clear();
+		playerCards.clear();
+		dealerCards.clear();
+		appFrame.reset();
 		
 		for(int suit = 1; suit <= 4; suit++)
 		{
@@ -235,6 +238,8 @@ public class BlackJackController
 	{
 		appFrame.runEndScreen(input);
 	}
+	
+	
 	
 	
 	
