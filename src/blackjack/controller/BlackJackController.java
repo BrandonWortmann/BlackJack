@@ -30,6 +30,8 @@ public class BlackJackController
 	
 	public void start()
 	{
+		
+		
 		for(int suit = 1; suit <= 4; suit++)
 		{
 			for(int number = 1; number <= 13; number++)
@@ -115,17 +117,16 @@ public class BlackJackController
 	
 	public void addPlayerCard()
 	{
-		if(checkPlayerBust() == false)
+		playerCards.add(cards.remove((int)(Math.random()*cards.size())));
+		appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
+		appFrame.changePlayerScore(playerCards.get(playerCards.size()-1).getNumber());
+		if(checkPlayerBust()) 
 		{
-			playerCards.add(cards.remove((int)(Math.random()*cards.size())));
-			appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
-			
-			appFrame.changePlayerScore(playerCards.get(playerCards.size()-1).getNumber());
+			runEndScreen("You Bust");
 		}
-		else
-		{
-			//appFrame.removeAll();
-		}
+		
+		
+		
 		
 	}
 	
@@ -134,7 +135,6 @@ public class BlackJackController
 	{
 		dealerCards.add(cards.remove((int)(Math.random()*cards.size())));
 		appFrame.addDealerCard(dealerCards.get(playerCards.size()-1));
-		
 		appFrame.changeDealerScore(dealerCards.get(dealerCards.size()-1).getNumber());
 	}
 	
@@ -142,7 +142,7 @@ public class BlackJackController
 	
 	public void playerStayed()
 	{
-		//appFrame.removeAll();
+		appFrame.removeEverything();
 		runDealer();
 	}
 	
@@ -155,10 +155,21 @@ public class BlackJackController
 			appFrame.addDealerCard(dealerCards.get(dealerCards.size()-1));
 			
 			appFrame.changeDealerScore(dealerCards.get(dealerCards.size()-1).getNumber());
-			
-			pause(1000);
-			
 		}
+		if(getDealerCount() > getPlayerCount())
+		{
+			runEndScreen("You Lost");
+		}
+		else if(getDealerCount() == getPlayerCount())
+		{
+			runEndScreen("You Pushed");
+		}
+		else
+		{
+			runEndScreen("You Won");
+		}
+		
+		
 	}
 	
 	
@@ -196,18 +207,37 @@ public class BlackJackController
 		return false;
 	}
 	
-	private void pause(int time)
+	private int getPlayerCount()
 	{
-		try
+		int total = 0;
+		
+		for(int i = 0; i < playerCards.size(); i++)
 		{
-			Thread.sleep(time);
+			total += playerCards.get(i).getNumber();
 		}
-		catch (InterruptedException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		return total;
 	}
-
+	
+	private int getDealerCount()
+	{
+		int total = 0;
+		
+		for(int i = 0; i < dealerCards.size(); i++)
+		{
+			total += dealerCards.get(i).getNumber();
+		}
+		
+		return total;
+	}
+	
+	private void runEndScreen(String input)
+	{
+		appFrame.runEndScreen(input);
+	}
+	
+	
+	
+	
 	
 }

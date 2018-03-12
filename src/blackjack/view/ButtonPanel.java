@@ -23,7 +23,9 @@ public class ButtonPanel extends JPanel
 	private JButton stayButton;
 	private JButton doubleButton;
 	private JButton splitButton;
+	private JButton playAgain;
 	private GridLayout appLayout;
+	private JLabel result;
 
 	public ButtonPanel(BlackJackController appController)
 	{
@@ -35,6 +37,8 @@ public class ButtonPanel extends JPanel
 		this.doubleButton = new JButton("Double");
 		this.splitButton = new JButton("Split");
 		this.stayButton = new JButton("Stay");
+		this.playAgain = new JButton("Play Again");
+		this.result = new JLabel();
 
 		this.appLayout = new GridLayout(0, 1, 0, 10);
 
@@ -80,13 +84,33 @@ public class ButtonPanel extends JPanel
 		splitButton.setBorder(new LineBorder(Color.BLACK,3));
 		doubleButton.setForeground(Color.WHITE);
 		splitButton.setForeground(Color.WHITE);
+		
+		playAgain.setOpaque(true);
+		playAgain.setBackground(Color.MAGENTA.darker().darker());
+		playAgain.setForeground(Color.WHITE);
+		playAgain.setBorder(new LineBorder(Color.BLACK,3));
+		playAgain.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		
+		result.setBackground(Color.DARK_GRAY);
+		result.setForeground(Color.WHITE);
+		result.setOpaque(true);
+		result.setBorder(new LineBorder(Color.BLACK,3));
+		result.setHorizontalAlignment(SwingConstants.CENTER);
+		result.setFont(new Font("Lucida Grande", Font.PLAIN, 35));
+		
 	}
 
 	private void setupListeners()
 	{
 		hitButton.addActionListener(click -> 
 		{
-			appController.addPlayerCard();	
+			
+			
+				appController.addPlayerCard();
+			
+			
+		
+				
 		});
 		
 		stayButton.addActionListener(click -> 
@@ -204,6 +228,32 @@ public class ButtonPanel extends JPanel
 			
 		});
 		
+		playAgain.addMouseListener(new MouseAdapter()
+		{
+			public void mouseEntered(MouseEvent enter)
+			{
+				playAgain.setBorder(new LineBorder(Color.WHITE,3));
+			}
+			
+			public void mouseExited(MouseEvent exit)
+			{
+				playAgain.setBorder(new LineBorder(Color.BLACK,3));
+			}
+			
+			public void mousePressed(MouseEvent pressed)
+			{
+				playAgain.setBackground(Color.MAGENTA.darker());
+			}
+			
+			public void mouseReleased(MouseEvent released)
+			{
+				playAgain.setBackground(Color.MAGENTA.darker().darker());
+			}
+			
+		});
+		
+		
+		
 	}
 
 	public void addDouble()
@@ -239,13 +289,23 @@ public class ButtonPanel extends JPanel
 		stayButton.setFont(new Font("Lucida Grande", Font.PLAIN, 60));
 	}
 	
-	public void removeAll()
+	public void removeEverything()
 	{
-		this.remove(hitButton);
-		this.remove(stayButton);
-		this.remove(doubleButton);
-		this.remove(splitButton);
+		this.removeAll();
+		
+		this.repaint();
 		
 	}
+	
+	public void runEndScreen(String input)
+	{
+		this.removeAll();
+		this.repaint();
+		this.add(result);
+		this.add(playAgain);
+		result.setText(input);
+	}
+	
+	
 
 }

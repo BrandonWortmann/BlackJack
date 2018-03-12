@@ -127,9 +127,14 @@ public class BlackJackPanel extends JPanel
 		dealerPanel.addCard(card);
 	}
 	
-	public void removeAll()
+	public void removeEverything()
 	{
-		buttonPanel.removeAll();
+		buttonPanel.removeEverything();
+	}
+	
+	public void runEndScreen(String input)
+	{
+		buttonPanel.runEndScreen(input);
 	}
 
 }
