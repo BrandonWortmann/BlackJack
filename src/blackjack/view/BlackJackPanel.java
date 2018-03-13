@@ -139,7 +139,26 @@ public class BlackJackPanel extends JPanel
 	
 	public void reset()
 	{
-		
+		buttonPanel.reset();
+		playerPanel.reset();
+		dealerPanel.reset();
+		playerScore.setText("");
+		dealerScore.setText("");
+		pScore = 0;
+		dScore = 0;
 	}
+	
+	public void subtractPlayerTotal()
+	{
+		pScore -= 10;
+		playerScore.setText(pScore + "");
+	}
+	
+	public void subtractDealerTotal()
+	{
+		dScore -= 10;
+		dealerScore.setText(dScore + "");
+	}
+	
 
 }

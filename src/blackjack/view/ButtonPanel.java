@@ -311,6 +311,14 @@ public class ButtonPanel extends JPanel
 		result.setText(input);
 	}
 	
+	public void reset()
+	{
+		this.removeAll();
+		this.add(hitButton);
+		this.add(stayButton);
+		this.repaint();
+	}
+	
 	
 
 }

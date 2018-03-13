@@ -65,5 +65,12 @@ public class PlayerPanel extends JLayeredPane
 			
 		
 	}
+	
+	public void reset()
+	{
+		labels.clear();
+		this.removeAll();
+		this.repaint();
+	}
 
 }

@@ -65,6 +65,16 @@ public class BlackJackFrame extends JFrame
 		appPanel.reset();
 	}
 	
+	public void subtractPlayerTotal()
+	{
+		appPanel.subtractPlayerTotal();
+	}
+	
+	public void subtractDealerTotal()
+	{
+		appPanel.subtractDealerTotal();
+	}
+	
 	
 	
 

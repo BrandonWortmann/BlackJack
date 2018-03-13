@@ -5,12 +5,16 @@ public class Card
 {
 	private int number;
 	private int suit;
+	private boolean ace;
 	private String image;
 	
-	public Card(int suit, int number)
+	
+	
+	public Card(int suit, int number, boolean ace)
 	{
 		this.suit = suit;
 		this.number = number;
+		this.ace = ace;
 	}
 	
 	public int getNumber()
@@ -33,6 +37,22 @@ public class Card
 	public String getImage()
 	{
 		return image;
+	}
+	
+	public boolean getAce()
+	{
+		
+		return this.ace;
+	}
+	
+	public void setNumber(int number)
+	{
+		this.number = number;
+	}
+	
+	public void setAce(boolean ace)
+	{
+		this.ace = ace;
 	}
 
 
