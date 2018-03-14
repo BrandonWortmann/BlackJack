@@ -24,8 +24,6 @@ public class BlackJackPanel extends JPanel
 	
 	private BlackJackController appController;
 	
-	private int pScore;
-	private int dScore;
 	
 	public BlackJackPanel(BlackJackController appController)
 	{
@@ -38,8 +36,7 @@ public class BlackJackPanel extends JPanel
 		this.dealerScore = new JLabel();
 		this.appLayout = new SpringLayout();
 		
-		pScore = 0;
-		dScore = 0;
+		
 		
 		
 		
@@ -105,16 +102,14 @@ public class BlackJackPanel extends JPanel
 		dealerScore.setForeground(Color.WHITE);
 	}
 	
-	public void changePlayerScore(int input)
+	public void changePlayerScore()
 	{
-		pScore += input;
-		playerScore.setText(pScore + "");
+		playerScore.setText(appController.getPlayerCount()+"");
 	}
 	
-	public void changeDealerScore(int input)
+	public void changeDealerScore()
 	{
-		dScore += input;
-		dealerScore.setText(dScore + "");
+		dealerScore.setText(appController.getDealerCount()+"");
 	}
 	
 	public void addPlayerCard(Card card)
@@ -144,20 +139,28 @@ public class BlackJackPanel extends JPanel
 		dealerPanel.reset();
 		playerScore.setText("");
 		dealerScore.setText("");
-		pScore = 0;
-		dScore = 0;
 	}
 	
 	public void subtractPlayerTotal()
 	{
-		pScore -= 10;
-		playerScore.setText(pScore + "");
+		
+		playerScore.setText(appController.getPlayerCount()+"");
 	}
 	
 	public void subtractDealerTotal()
 	{
-		dScore -= 10;
-		dealerScore.setText(dScore + "");
+		dealerScore.setText(appController.getDealerCount()+"");
+	}
+	
+	public void changeDealerCard(Card card)
+	{
+		changeDealerScore();
+		dealerPanel.changeDealerCard(card);
+	}
+	
+	public void setDealerScore(int input)
+	{
+		dealerScore.setText(input + "");
 	}
 	
 

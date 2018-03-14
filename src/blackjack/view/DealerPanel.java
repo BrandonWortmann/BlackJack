@@ -45,11 +45,19 @@ public class DealerPanel extends JLayeredPane
 			this.remove(labels.get(i));
 		}
 		
+		if(labels.size() == 0)
+		{
+			labels.add(new JLabel(new ImageIcon(getClass().getResource("/blackjack/view/cardPictures/cardBack.png"))));
+		}
+		else
+		{
+			labels.add(new JLabel(new ImageIcon(getClass().getResource(card.getImage()))));
+		}
 		
-		labels.add(new JLabel(new ImageIcon(getClass().getResource(card.getImage()))));
 		
 		for(int i = 0; i<labels.size();i++)
 		{
+			
 			labels.get(i).setSize(158, 230);
 			
 			labels.get(i).setLocation(371+(30*i) , 5);
@@ -74,6 +82,11 @@ public class DealerPanel extends JLayeredPane
 		labels.clear();
 		this.removeAll();
 		this.repaint();
+	}
+	
+	public void changeDealerCard(Card card)
+	{
+		labels.get(0).setIcon(new ImageIcon(getClass().getResource(card.getImage())));
 	}
 
 }

@@ -40,14 +40,14 @@ public class BlackJackFrame extends JFrame
 		appPanel.addDealerCard(card);
 	}
 	
-	public void changePlayerScore(int input)
+	public void changePlayerScore()
 	{
-		appPanel.changePlayerScore(input);
+		appPanel.changePlayerScore();
 	}
 	
-	public void changeDealerScore(int input)
+	public void changeDealerScore()
 	{
-		appPanel.changeDealerScore(input);
+		appPanel.changeDealerScore();
 	}
 	
 	public void removeEverything()
@@ -73,6 +73,16 @@ public class BlackJackFrame extends JFrame
 	public void subtractDealerTotal()
 	{
 		appPanel.subtractDealerTotal();
+	}
+	
+	public void changeDealerCard(Card card)
+	{
+		appPanel.changeDealerCard(card);
+	}
+	
+	public void setDealerScore(int input)
+	{
+		appPanel.setDealerScore(input);
 	}
 	
 	
