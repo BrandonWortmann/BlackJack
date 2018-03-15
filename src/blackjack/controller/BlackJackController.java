@@ -10,11 +10,9 @@ public class BlackJackController
 	private BlackJackFrame appFrame;
 	private List<Card> cards;
 	private Card card;
-	private Card dealerCard;
 	private List<Card> playerCards;
 	private List<Card> dealerCards;
-	private int playerIndex;
-	private int dealerIndex;
+	
 	
 	public BlackJackController()
 	{
@@ -23,10 +21,7 @@ public class BlackJackController
 		playerCards = new ArrayList<Card>();
 		dealerCards = new ArrayList<Card>();
 		card = new Card(0,0,false);
-		dealerCard = new Card(0,0,false);
 		
-		playerIndex = 0;
-		dealerIndex = 0;
 		
 		
 		
@@ -147,8 +142,8 @@ public class BlackJackController
 		card = cards.remove((int)(Math.random()*cards.size()));
 		playerCards.add(card);
 		appFrame.addPlayerCard(playerCards.get(playerCards.size()-1));
-		appFrame.changePlayerScore();
 		checkNextPlayerCard();
+		appFrame.changePlayerScore();
 		if(checkPlayerBust()) 
 		{
 			appFrame.changeDealerCard(dealerCards.get(0));
@@ -164,8 +159,10 @@ public class BlackJackController
 	{
 		if(dealerCards.size() == 0)
 		{
+			
 			card = cards.remove((int)(Math.random()*cards.size()));
 			dealerCards.add(card);
+			checkNextDealerCard();
 			appFrame.addDealerCard(dealerCards.get(dealerCards.size()-1));
 
 			
@@ -173,8 +170,10 @@ public class BlackJackController
 		else
 		{
 		
+			
 			card = cards.remove((int)(Math.random()*cards.size()));
 			dealerCards.add(card);
+			checkNextDealerCard();
 			appFrame.addDealerCard(dealerCards.get(dealerCards.size()-1));
 			appFrame.setDealerScore(dealerCards.get(1).getNumber());
 			
@@ -197,17 +196,10 @@ public class BlackJackController
 	
 	
 	
-	public void playerStayed()
-	{
-		appFrame.removeEverything();
-		runDealer();
-	}
-	
-	
 	public void runDealer()
 	{
+		appFrame.removeEverything();
 		appFrame.changeDealerCard(dealerCards.get(0));
-		//dealerCards.add(dealerCard);
 		while(checkDealer() == false)
 		{
 			addDealerCard();
@@ -243,14 +235,7 @@ public class BlackJackController
 	
 	private boolean checkPlayerBust()
 	{
-		int playerTotal = 0;
-		
-		for(int i = 0; i < playerCards.size(); i++)
-		{
-			playerTotal += playerCards.get(i).getNumber();
-		}
-		
-		if(playerTotal > 21)
+		if(getPlayerCount() > 21)
 		{
 			return true;
 		}
@@ -288,15 +273,12 @@ public class BlackJackController
 	
 	private void checkNextPlayerCard()
 	{
-		boolean pass= true;
 		for(int i = 0; i < playerCards.size(); i++)
 		{
-			if(checkPlayerBust() && playerCards.get(i).getAce() && pass)
+			if(checkPlayerBust() && playerCards.get(i).getAce())
 			{
 				playerCards.get(i).setNumber(1);
 				playerCards.get(i).setAce(false);
-				pass = false;
-				appFrame.subtractPlayerTotal();
 			}
 		}
 	}

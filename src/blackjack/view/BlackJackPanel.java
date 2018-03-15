@@ -141,16 +141,7 @@ public class BlackJackPanel extends JPanel
 		dealerScore.setText("");
 	}
 	
-	public void subtractPlayerTotal()
-	{
-		
-		playerScore.setText(appController.getPlayerCount()+"");
-	}
 	
-	public void subtractDealerTotal()
-	{
-		dealerScore.setText(appController.getDealerCount()+"");
-	}
 	
 	public void changeDealerCard(Card card)
 	{

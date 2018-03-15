@@ -115,7 +115,7 @@ public class ButtonPanel extends JPanel
 		
 		stayButton.addActionListener(click -> 
 		{
-			appController.playerStayed();
+			appController.runDealer();
 		}
 		);
 		
